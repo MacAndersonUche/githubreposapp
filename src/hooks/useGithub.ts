@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 import { Repo } from "../types";
 
+function formatDate(dateString: string) {
+  const date = new Date(dateString);
+  const day = date.getUTCDate();
+  const month = date.getUTCMonth() + 1;
+  const year = date.getUTCFullYear();
+  return `${day}/${month}/${year}`;
+}
+
 function useGithub() {
   const [repos, setRepos] = useState<Repo[]>([]);
   const fetchRepos = async () => {
@@ -21,14 +29,12 @@ function useGithub() {
             repoName: data.name,
             repoUrl: data["html_url"],
             ownerName: data.owner.login,
-            createdAt: data["created_at"],
-            updatedAt: data["updated_at"],
+            createdAt: formatDate(data["created_at"]),
+            updatedAt: formatDate(data["updated_at"]),
             imageUrl: data.owner["avatar_url"],
           };
         })
       );
-
-      //   console.log(dataObj);
 
       return dataObj;
     } catch (error) {

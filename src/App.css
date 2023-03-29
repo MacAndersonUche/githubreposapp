@@ -24,8 +24,8 @@
   font-size: 14px;
 }
 
-.App div p:nth-child(2),
-.App div p:nth-child(3) {
+.App div a p:nth-child(2),
+.App div a p:nth-child(3) {
   font-size: 18px;
   font-family: 'Arial Black', sans-serif;
 }
