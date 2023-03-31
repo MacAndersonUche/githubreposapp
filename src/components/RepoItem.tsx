@@ -1,4 +1,4 @@
-import { Repo } from "./types"
+import { Repo } from "../types"
 
 interface RepoProps {
     item: Repo

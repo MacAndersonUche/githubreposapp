@@ -1,6 +1,6 @@
 import './App.css'
 import useGithub from './hooks/useGithub';
-import RepoItem from './RepoItem';
+import RepoItem from './components/RepoItem';
 import { Repo } from './types';
 
 function App() {
