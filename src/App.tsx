@@ -1,5 +1,6 @@
 import './App.css'
 import useGithub from './hooks/useGithub';
+import RepoItem from './RepoItem';
 import { Repo } from './types';
 
 function App() {
@@ -10,15 +11,7 @@ function App() {
       <ul>
         {repos.map((item: Repo) => {
           return (
-            <div key={`${item.repoUrl}`}>
-              <a href={item.repoUrl}><img src={item.imageUrl} alt="" />
-                <p>Owner: {item.ownerName}</p>
-                <p>Repo Name: {item.repoName}</p>
-              </a>
-              <p>Created at: {item.createdAt}</p>
-              <p>Last Updated: {item.updatedAt}</p>
-            </div>
-
+            <RepoItem item={item} key={item.repoUrl} />
           )
         })}
       </ul>
